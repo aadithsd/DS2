@@ -1,0 +1,70 @@
+#include<stdio.h>
+#include<conio.h>
+#define max 5
+
+int q[max];
+int f=-1;
+int r=-1;
+
+void insert()
+{
+    int value;
+    if ((r+1)%max==f){
+        printf("q full");
+        return;
+    }
+    printf("\nenter value to insert: ");
+    scanf("%d",&value);
+
+    if(f==-1)
+        f=r=0;
+    else
+        r=(r+1)%max;
+    q[r]=value;
+    printf("%d inserted",value);
+}
+
+void delete()
+{
+    if(f==-1)
+    {
+        printf("\n empty");
+        return;
+    }
+    printf("\n deleted %d ",q[f]);
+    if(f==r)
+        f=r=-1;
+    else
+        f=(f+1)%max;
+}
+
+void display()
+{
+    int i;
+    if(f==-1 )
+    {
+        printf("\n empty");
+        return;
+    }
+    for(i=f;i!=r;i=(i+1)%max)
+        printf("%d ",q[i]);
+    printf("%d",q[r]);
+}
+
+int main()
+{
+    int ch;
+    while(1)
+    {
+        printf("\n1.insert 2.delete 3.display 4.exit\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1: insert(); break;
+            case 2: delete(); break;
+            case 3: display(); break;
+            case 4: return 0;
+            default: printf("invalid input.");
+        }
+    }
+}
