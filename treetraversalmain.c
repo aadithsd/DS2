@@ -48,7 +48,7 @@ int main()
     printf("Enter number of nodes: ");
     scanf("%d", &n);
 
-    printf("Enter tree elements level-wise (-1 for no node):\n");
+    printf("Enter tree elements level-wise :\n");
     for (i = 0; i < n; i++)
         scanf("%d", &tree[i]);
 
